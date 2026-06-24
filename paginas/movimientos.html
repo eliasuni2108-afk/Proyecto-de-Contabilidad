@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContApp — Análisis de Operación</title>
+  <link rel="stylesheet" href="../estilos/styles.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">📖 Cont<span>App</span></div>
+    <nav class="side-nav">
+      <a href="libros.html" class="nav-item">📋 Libro Diario</a>
+      <a href="movimientos.html" class="nav-item active">📊 Análisis de Op.</a>
+      <a href="cuentas.html" class="nav-item">⚖ Balanza de Comp.</a>
+      <a href="resultados.html" class="nav-item">📄 Resultados</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <div>
+        <h1 class="page-title">Análisis de la Operación</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Fórmulas del método pormenorizado en tiempo real.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="grid-column: 1;">
+        <div class="card-header"><h2>Desglose de Fórmulas</h2></div>
+        
+        <div class="metric-section">
+          <div class="metric-section-label">Ventas Netas</div>
+          <div class="metric"><span>Ventas brutas (Haber)</span><strong id="ventasBrutas">0.00</strong></div>
+          <div class="metric"><span>− Devoluciones s/ventas</span><span id="devVentas">0.00</span></div>
+          <div class="metric"><span>− Descuentos s/ventas</span><span id="descVentas">0.00</span></div>
+          <div class="metric metric-highlight"><span>= Ventas Netas</span><strong id="ventasNetas">0.00</strong></div>
+        </div>
+
+        <div class="metric-section">
+          <div class="metric-section-label">Compras Netas</div>
+          <div class="metric"><span>Compras brutas (Debe)</span><strong id="comprasBrutas">0.00</strong></div>
+          <div class="metric"><span>+ Gastos de compra</span><span id="gastosCompra">0.00</span></div>
+          <div class="metric"><span>− Devoluciones s/compras</span><span id="devCompras">0.00</span></div>
+          <div class="metric"><span>− Descuentos s/compras</span><span id="descCompras">0.00</span></div>
+          <div class="metric metric-highlight"><span>= Compras Netas</span><strong id="comprasNetas">0.00</strong></div>
+        </div>
+
+        <div class="metric-section">
+          <div class="metric-section-label">Costo de lo Vendido</div>
+          <div class="metric"><span>Inventario Inicial</span><span id="inventarioInicial">0.00</span></div>
+          <div class="metric"><span>+ Compras Netas</span><strong id="comprasNetasB">0.00</strong></div>
+          <div class="metric metric-highlight" style="margin-bottom: 12px;"><span>= Total Mercancía Disponible</span><strong id="totalMercancia">0.00</strong></div>
+          
+          <div class="inv-final-wrapper">
+            <label>− Inventario Final (Dato Extracontable Físico)</label>
+            <input type="number" id="inventarioFinal" value="600000" step="any">
+          </div>
+          
+          <div class="metric metric-highlight"><span>= Costo de lo Vendido</span><strong id="costoVendido">0.00</strong></div>
+        </div>
+
+        <div class="utilidad-card" id="utilidadBox">
+          <div>
+            <div class="utilidad-label">Utilidad Bruta</div>
+            <div class="utilidad-sublabel">Ventas Netas − Costo de lo Vendido</div>
+          </div>
+          <strong id="utilidadBruta">0.00</strong>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column: 2;">
+        <div class="card-header"><h2>Guía de Naturaleza</h2></div>
+        <div class="metric-section">
+          <div class="metric-section-label">Cuentas de Ventas</div>
+          <div class="metric"><span>Ventas</span><span style="color:var(--credit)">Haber (↑ Ingreso)</span></div>
+          <div class="metric"><span>Dev. s/ventas</span><span style="color:var(--debit)">Debe (↓ Ingreso)</span></div>
+          <div class="metric"><span>Desc. s/ventas</span><span style="color:var(--debit)">Debe (↓ Ingreso)</span></div>
+        </div>
+        <div class="metric-section">
+          <div class="metric-section-label">Cuentas de Compras</div>
+          <div class="metric"><span>Compras</span><span style="color:var(--debit)">Debe (↑ Costo)</span></div>
+          <div class="metric"><span>Gastos de compra</span><span style="color:var(--debit)">Debe (↑ Costo)</span></div>
+          <div class="metric"><span>Dev. s/compras</span><span style="color:var(--credit)">Haber (↓ Costo)</span></div>
+          <div class="metric"><span>Desc. s/compras</span><span style="color:var(--credit)">Haber (↓ Costo)</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/scripts.js"></script>
+</body>
+</html>

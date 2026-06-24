@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContApp — Libro Diario</title>
+  <link rel="stylesheet" href="../estilos/styles.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      📖 Cont<span>App</span>
+    </div>
+    <nav class="side-nav">
+      <a href="libros.html" class="nav-item active">📋 Libro Diario</a>
+      <a href="movimientos.html" class="nav-item">📊 Análisis de Op.</a>
+      <a href="cuentas.html" class="nav-item">⚖ Balanza de Comp.</a>
+      <a href="resultados.html" class="nav-item">📄 Resultados</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    
+    <div class="top-bar">
+      <div>
+        <h1 class="page-title">Libro Diario</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Registro de operaciones por partida doble.</p>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button id="loadExampleBtn" class="btn btn-secondary">↺ Cargar Ejemplo</button>
+        <button id="clearAllBtn" class="btn btn-danger-outline">✕ Limpiar Todo</button>
+      </div>
+    </div>
+
+    <div class="kpi-container">
+      <div class="kpi-card">
+        <div class="kpi-label">Asientos Registrados</div>
+        <div class="kpi-value" id="kpiAsientos">0</div>
+      </div>
+      <div class="kpi-card kpi-debit">
+        <div class="kpi-label">Total Debe</div>
+        <div class="kpi-value" id="kpiDebe">0.00</div>
+      </div>
+      <div class="kpi-card kpi-credit">
+        <div class="kpi-label">Total Haber</div>
+        <div class="kpi-value" id="kpiHaber">0.00</div>
+      </div>
+    </div>
+
+    <div id="balanceWarning"></div>
+
+    <div class="grid-2">
+      <div class="card" style="grid-column: 1;">
+        <div class="card-header">
+          <h2>Nuevo Asiento</h2>
+          <button id="printDiarioBtn" class="btn btn-secondary">🖨 Imprimir</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Cuenta Contable</label>
+            <input type="text" id="accountName" placeholder="Ej: Ventas, Caja..." list="accountSuggestions" autocomplete="off">
+            <datalist id="accountSuggestions">
+              <option>Ventas</option><option>Devoluciones s/ventas</option>
+              <option>Compras</option><option>Caja</option>
+              <option>Capital</option><option>Clientes</option>
+            </datalist>
+          </div>
+          <div class="input-group">
+            <label>Monto ($)</label>
+            <input type="number" id="amount" placeholder="0.00">
+          </div>
+          <div class="input-group">
+            <label>Naturaleza</label>
+            <select id="entryType">
+              <option value="debe">Debe (Carga)</option>
+              <option value="haber">Haber (Abona)</option>
+            </select>
+          </div>
+          <button id="addEntryBtn" class="btn btn-primary">Agregar</button>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 16px;">
+          <input type="text" id="searchInput" placeholder="🔍 Buscar cuenta en el diario...">
+        </div>
+
+        <div class="table-container">
+          <table id="entriesTable">
+            <thead>
+              <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 45%;">Cuenta</th>
+                <th style="width: 20%;">Debe</th>
+                <th style="width: 20%;">Haber</th>
+                <th style="width: 10%;"></th>
+              </tr>
+            </thead>
+            <tbody id="entriesTbody"></tbody>
+            <tfoot id="tableFoot"></tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column: 2;">
+        <div class="card-header">
+          <h2>Mayor Auxiliar (Operación)</h2>
+        </div>
+        <div class="table-container">
+          <table id="summaryTable">
+            <thead>
+              <tr>
+                <th>Cuenta</th>
+                <th style="text-align:right;">Debe</th>
+                <th style="text-align:right;">Haber</th>
+              </tr>
+            </thead>
+            <tbody id="summaryBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../scripts/scripts.js"></script>
+</body>
+</html>

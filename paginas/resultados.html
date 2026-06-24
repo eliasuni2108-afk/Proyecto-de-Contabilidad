@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContApp — Estado de Resultados</title>
+  <link rel="stylesheet" href="../estilos/styles.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">📖 Cont<span>App</span></div>
+    <nav class="side-nav">
+      <a href="libros.html" class="nav-item">📋 Libro Diario</a>
+      <a href="movimientos.html" class="nav-item">📊 Análisis de Op.</a>
+      <a href="cuentas.html" class="nav-item">⚖ Balanza de Comp.</a>
+      <a href="resultados.html" class="nav-item active">📄 Resultados</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <div>
+        <h1 class="page-title">Estado de Resultados</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Documento financiero formal.</p>
+      </div>
+      <button id="printEstadoBtn" class="btn btn-primary">🖨 Imprimir Reporte</button>
+    </div>
+
+    <div class="er-empresa-input-wrap">
+      <div class="input-group">
+        <label>Nombre de la Empresa</label>
+        <input type="text" id="empresaNombre" value="Mi Empresa S.A.">
+      </div>
+      <div class="input-group">
+        <label>Período del Ejercicio</label>
+        <input type="text" id="empresaPeriodo" value="Del 1 al 31 de enero de 2025">
+      </div>
+    </div>
+
+    <div class="er-doc" id="estadoDoc">
+      <div class="er-company-name" id="erEmpresa">Mi Empresa S.A.</div>
+      <div class="er-doc-type">Estado de Resultados</div>
+      <div class="er-period" id="erPeriodo">Del 1 al 31 de enero de 2025</div>
+
+      <div class="er-section-head">Ingresos</div>
+      <div class="er-line indent"><span>Ventas brutas</span><span id="er-ventasBrutas">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">−</span>Devoluciones s/ventas</span><span id="er-devVentas">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">−</span>Descuentos s/ventas</span><span id="er-descVentas">0.00</span></div>
+      <div class="er-line subtotal"><span>Ventas Netas</span><span id="er-ventasNetas">0.00</span></div>
+
+      <hr class="er-divider">
+      <div class="er-section-head">Costo de lo Vendido</div>
+      <div class="er-line indent"><span>Inventario inicial</span><span id="er-invInicial">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">+</span>Compras brutas</span><span id="er-comprasBrutas">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">+</span>Gastos de compra</span><span id="er-gastosCompra">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">−</span>Devoluciones s/compras</span><span id="er-devCompras">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">−</span>Descuentos s/compras</span><span id="er-descCompras">0.00</span></div>
+      <div class="er-line subtotal"><span>Compras Netas</span><span id="er-comprasNetas">0.00</span></div>
+      <div class="er-line subtotal"><span>Mercancía Disponible</span><span id="er-totalMercancia">0.00</span></div>
+      <div class="er-line indent"><span><span class="er-sign">−</span>Inventario final</span><span id="er-invFinal">0.00</span></div>
+      <div class="er-line subtotal"><span>Costo de lo Vendido</span><span id="er-costoVendido">0.00</span></div>
+
+      <hr class="er-divider">
+      <div class="er-line total-final" id="er-utilidadLine">
+        <span>UTILIDAD BRUTA</span>
+        <span id="er-utilidadBruta">0.00</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/scripts.js"></script>
+</body>
+</html>

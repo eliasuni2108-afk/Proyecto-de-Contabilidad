@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContApp — Balanza de Comprobación</title>
+  <link rel="stylesheet" href="../estilos/styles.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">📖 Cont<span>App</span></div>
+    <nav class="side-nav">
+      <a href="libros.html" class="nav-item">📋 Libro Diario</a>
+      <a href="movimientos.html" class="nav-item">📊 Análisis de Op.</a>
+      <a href="cuentas.html" class="nav-item active">⚖ Balanza de Comp.</a>
+      <a href="resultados.html" class="nav-item">📄 Resultados</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <div>
+        <h1 class="page-title">Balanza de Comprobación</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Verificación de movimientos y saldos del mayor.</p>
+      </div>
+    </div>
+
+    <div class="card card-full">
+      <div class="card-header">
+        <div style="display:flex; align-items:center; gap: 12px;">
+          <h2>Movimientos y Saldos</h2>
+          <span id="balanzaBadge"></span>
+        </div>
+        <button id="printBalanzaBtn" class="btn btn-secondary">🖨 Imprimir Documento</button>
+      </div>
+
+      <div class="table-container">
+        <table class="balanza-table">
+          <thead>
+            <tr>
+              <th>Cuenta Contable</th>
+              <th>Movimiento Debe</th>
+              <th>Movimiento Haber</th>
+              <th>Saldo Deudor</th>
+              <th>Saldo Acreedor</th>
+            </tr>
+          </thead>
+          <tbody id="balanzaBody"></tbody>
+          <tfoot id="balanzaFoot"></tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/scripts.js"></script>
+</body>
+</html>
