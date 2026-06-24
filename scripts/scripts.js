@@ -1,7 +1,3 @@
-// ==========================================
-// scripts/scripts.js (Versión Corregida para Múltiples Páginas)
-// ==========================================
-
 let entries = JSON.parse(localStorage.getItem('contapp_entries')) || [];
 let nextId  = entries.length > 0 ? Math.max(...entries.map(e => e.id)) + 1 : 1;
 
